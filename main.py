@@ -9,7 +9,7 @@ models.Base.metadata.create_all(engine)
 
 @app.get('/')
 def home():
-    return {'test': 'successful'}
+    return {'mensagem': 'Bem vindo a loja de bikes!'}
 
 @app.post('/addbike')
 def nova_bike(bike: schemas.Bicicleta, db: SessionLocal = Depends(get_db)):
@@ -31,3 +31,18 @@ def nova_venda(venda: schemas.Venda, db: SessionLocal = Depends(get_db)):
                             quantidade=venda.quantidade)
     db.add(new_sale)
     db.commit()
+
+@app.get('/products')
+def item(db: SessionLocal = Depends(get_db)):
+    result = db.query(models.Produto).all()
+    return result
+
+@app.get('/clientes')
+def item(db: SessionLocal = Depends(get_db)):
+    result = db.query(models.Cliente).all()
+    return result
+
+@app.get('/vendas')
+def item(db: SessionLocal = Depends(get_db)):
+    result = db.query(models.Venda).all()
+    return result
