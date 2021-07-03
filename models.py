@@ -20,15 +20,13 @@ class Cliente(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     nome = Column(String, unique=True)
     idade = Column(Integer)
-    n_compras = Column(Integer, default=0)
 
 
 class Venda(Base):
     __tablename__ = 'vendas'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    cliente = Column(Integer)
-    produto = Column(Integer)
+    id_cliente = Column(Integer)
+    id_produto = Column(Integer)
     quantidade = Column(Integer)
-    valor = Column(Float)
     data = Column(DateTime, default=datetime.datetime.now())

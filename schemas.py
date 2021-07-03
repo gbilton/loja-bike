@@ -11,11 +11,8 @@ class Bicicleta(BaseModel):
 class Cliente(BaseModel):
     nome: str
     idade: int
-    n_compras: int
 
 class Venda(BaseModel):
-    cliente: int
-    produto: int
+    id_cliente: int
+    id_produto: int
     quantidade: int
-    valor: float
-    

@@ -17,3 +17,17 @@ def nova_bike(bike: schemas.Bicicleta, db: SessionLocal = Depends(get_db)):
                         ano=bike.ano, cor=bike.cor, preco=bike.preco)
     db.add(new_bike)
     db.commit()
+
+@app.post('/addcostumer')
+def novo_cliente(cliente: schemas.Cliente, db: SessionLocal = Depends(get_db)):
+    new_costumer = models.Cliente(nome=cliente.nome, idade=cliente.idade)
+    db.add(new_costumer)
+    db.commit()
+
+@app.post('/checkout')
+def nova_venda(venda: schemas.Venda, db: SessionLocal = Depends(get_db)):
+    new_sale = models.Venda(id_cliente=venda.id_cliente,
+                            id_produto=venda.id_produto,
+                            quantidade=venda.quantidade)
+    db.add(new_sale)
+    db.commit()
