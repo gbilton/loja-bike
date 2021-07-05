@@ -8,6 +8,6 @@ def post(url, table):
         data = json.loads(i.to_json())
         requests.post(url, json=data)
 
-post('http://127.0.0.1:8000/products', popular.produtos)
-post('http://127.0.0.1:8000/costumers', popular.clientes)
-post('http://127.0.0.1:8000/sales', popular.vendas)
+post('http://127.0.0.1:8000/api/products', popular.produtos)
+post('http://127.0.0.1:8000/api/costumers', popular.clientes)
+post('http://127.0.0.1:8000/api/sales', popular.vendas)
