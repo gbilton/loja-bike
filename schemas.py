@@ -13,6 +13,6 @@ class Cliente(BaseModel):
     idade: int
 
 class Venda(BaseModel):
+    id_venda: int
     id_cliente: int
     id_produto: int
-    quantidade: int

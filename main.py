@@ -59,6 +59,6 @@ def novo_cliente(cliente: schemas.Cliente, db: SessionLocal = Depends(get_db)):
 def nova_venda(venda: schemas.Venda, db: SessionLocal = Depends(get_db)):
     new_sale = models.Venda(id_cliente=venda.id_cliente,
                             id_produto=venda.id_produto,
-                            quantidade=venda.quantidade)
+                            id_venda=venda.id_venda)
     db.add(new_sale)
     db.commit()
